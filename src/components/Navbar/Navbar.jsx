@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import AuthModal from "../LoginModal/AuthModal";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -20,6 +22,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Navbar = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [elevated, setElevated] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -103,21 +106,31 @@ const Navbar = () => {
           </Box>
 
           {/* Center Links */}
+
           <Stack
             direction="row"
             spacing={4}
             sx={{ display: { xs: "none", md: "flex" }, ml: 4 }}
           >
-            {["Home", "Tour Packages", "Destination", "Gallery", "About Us", "Contact Us"].map((item, idx) => (
+            {[
+              { label: "Home", path: "/" },
+              { label: "Tour Packages", path: "/tours" },
+              { label: "Destination", path: "/destinations" },
+              { label: "Gallery", path: "/gallery" },
+              { label: "About Us", path: "/about" },
+              { label: "Contact Us", path: "/contact" },
+            ].map((item, idx) => (
               <Button
                 key={idx}
+                component={Link}
+                to={item.path}
                 sx={{
-                  fontWeight: item === "Home" ? 700 : 500,
-                  color: item === "Home" ? "#facc15" : "#333",
+                  fontWeight: item.label === "Home" ? 700 : 500,
+                  color: item.label === "Home" ? "#facc15" : "#333",
                   textTransform: "none",
                 }}
               >
-                {item}
+                {item.label}
               </Button>
             ))}
           </Stack>
@@ -133,7 +146,9 @@ const Navbar = () => {
             <Stack direction="row" alignItems="center" spacing={0.5}>
               <PersonIcon />
               <Typography variant="body2" fontWeight={500}>
-                Login/Register
+                <button onClick={() => setModalOpen(true)}>Login / Register</button>
+                {/* Always open with register screen first */}
+                <AuthModal open={modalOpen} onClose={() => setModalOpen(false)} defaultToLogin={false} />
               </Typography>
             </Stack>
           </Stack>
