@@ -213,7 +213,7 @@ const Hero = () => {
 
       {/* Search Form */}
       <div
-        className={`w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 bg-white/70 backdrop-blur-lg p-6 mt-[100px] md:p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out
+        className={`w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 bg-white/70 backdrop-blur-lg p-6 mt-[200px] md:p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out
         ${showSearch ? "block" : "hidden"} md:grid`}
         data-aos="fade-up"
       >
@@ -226,9 +226,9 @@ const Hero = () => {
             onChange={(e) => setLocation(e.target.value)}
           >
             <option value="">Select Location</option>
-            <option value="Paris">Paris</option>
-            <option value="Dubai">Dubai</option>
-            <option value="Tokyo">Tokyo</option>
+            <option value="Paris">Goa</option>
+            <option value="Dubai">Manali</option>
+            <option value="Tokyo">Kerala</option>
           </select>
         </div>
 
