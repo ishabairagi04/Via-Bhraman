@@ -7,6 +7,11 @@ import { FiArrowLeft } from "react-icons/fi";
 import { IoIosStar } from "react-icons/io";
 import { FaCamera, FaVideo, FaHeart, FaUserTie, FaMapMarkedAlt, FaSpa, FaTags ,FaClock } from "react-icons/fa";
 
+import { Parallax } from 'react-parallax';
+
+import { motion, useViewportScroll, useTransform } from "framer-motion";
+import Footer from "../Footer/Footer";
+
 const packages = [
   {
     id: 1,
@@ -165,7 +170,7 @@ const articles = [
     tag: "Accommodation",
   },
 ];
-const Hero = () => {
+const Home = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [location, setLocation] = useState("");
   const [tourType, setTourType] = useState("Adventure");
@@ -173,6 +178,9 @@ const Hero = () => {
   const [showSearch, setShowSearch] = useState(false);
 
   const cardContainerRef = useRef(null);
+   const { scrollY } = useViewportScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.7]);
+  const scale = useTransform(scrollY, [0, 300], [1, 1.05]);
 
   useEffect(() => {
     AOS.init({ once: true });
@@ -187,7 +195,8 @@ const Hero = () => {
   return (
     <section
       className="w-full h-screen bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10"
-      style={{ backgroundImage: "url('/desert.jpg')" }}
+      style={{ backgroundImage: "url('/desert.jpg')", paddingBottom: "300px" }}
+     
     >
       <div className="text-center mt-16 mb-12" data-aos="fade-up">
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
@@ -463,7 +472,7 @@ const Hero = () => {
 </section> 
 {/*frame 6*/}
  {/* === Why Choose GlobeTrek === */}
-      <section className="bg-[#d8a34d] bg-opacity-30 py-16 px-4">
+      <section className="bg-[#d8a34d] w-3000px bg-opacity-30 py-16 px-4 ml-[-45px] mr-[-40px] ">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
             Why choose GlobeTrek
@@ -506,6 +515,36 @@ const Hero = () => {
           </div>
         </div>
       </section>
+     {/* Forest Parallax Section with Framer Motion Animation */}
+      <motion.div style={{ opacity, scale, marginTop:16 }}>
+        <Parallax
+          bgImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
+          strength={400}
+        >
+          <div className="h-[90vh] flex items-center  justify-center">
+           
+            <div className="bg-black bg-opacity-50 text-white p-8 rounded-lg text-center max-w-2xl">
+                 {/* Play Button */}
+      <button className="w-16 h-16 rounded-full bg-white/20  border-2 border-white hover:bg-white/30 transition flex items-center justify-center mx-auto">
+        <svg
+          className="w-8 h-8 text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path d="M6 4l12 6-12 6V4z" />
+        </svg>
+      </button>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Discover the Beauty of <br /> Nature
+              </h1>
+              <p className="text-lg md:text-xl">
+                Explore breathtaking forests and mountains around the world.
+              </p>
+            </div>
+          </div>
+        </Parallax>
+      </motion.div>
+
        {/* === Frame 7: Top Destinations === */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
@@ -579,8 +618,9 @@ const Hero = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </section>
   );
 };
 
-export default Hero;
+export default Home;
