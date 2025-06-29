@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/" element={
             <>
               <Home />
-              <DiscoverSection /> {/* Frame 2 section */}
+              <DiscoverSection />
             </>
           } />
           <Route path="/about" element={<About />} />

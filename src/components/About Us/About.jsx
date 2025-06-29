@@ -1,97 +1,126 @@
-// src/components/About Us/About.jsx
+
 import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { PhoneCall, Star, MapPin } from "lucide-react";
 
-export default function About() {
-return (
-<main className="bg-white text-gray-800 py-12 px-6 lg:px-24 mt-8">
-  {/* Brand Origins */}
-  <section className="mb-12 text-center">
-    <h1 className="text-4xl font-bold text-yellow-500 mb-4">Our Journey</h1>
-    <p className="text-lg max-w-3xl mx-auto">
-      Via-Bhraman was born from a shared passion for travel and discovery. What began as a backpacking blog has grown
-      into a platform that helps people across the globe plan unforgettable adventures with ease and confidence.
-    </p>
-  </section>
+const About = () => {
+    return (
+        <section className="mt-16 sm:mt-20">
+            <div
+                className="w-full min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] px-4 sm:px-8 md:px-16 py-12 sm:py-16  bg-cover bg-center bg-no-repeat text-center flex justify-center items-center"
+                style={{ backgroundImage: "url('/About_1.avif')" }}
+            >
+                <motion.div
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+                        About Us
+                    </h1>
 
-  {/* Mission & Values */}
-  <section className="mb-12">
-    <h2 className="text-3xl font-semibold text-yellow-500 mb-4">Mission & Values</h2>
-    <ul className="list-disc list-inside text-lg space-y-2">
-      <li>🌍 Mission: To make travel accessible, enriching, and meaningful for everyone.</li>
-      <li>💛 Values: Trust, sustainability, transparency, and a love for exploration.</li>
-    </ul>
-  </section>
+                    <nav className="text-sm sm:text-base text-gray-600 flex justify-center space-x-2 mt-2">
+                        <Link to="/" className="hover:underline hover:text-yellow-600">
+                            Home
+                        </Link>
+                        <span>›</span>
+                        <span className="text-gray-800">About Us</span>
+                    </nav>
+                </motion.div>
+            </div>
 
-  {/* Unique Selling Proposition & Target Audience */}
-  <section className="mb-12 grid md:grid-cols-2 gap-8">
-    <div>
-      <h2 className="text-3xl font-semibold text-yellow-500 mb-4">Why We're Unique</h2>
-      <p className="text-lg">
-        We don’t just book trips — we craft experiences. Our eco-friendly travel plans, personalized itineraries, and
-        local partnerships make us stand out from the crowd.
-      </p>
-    </div>
-    <div>
-      <h2 className="text-3xl font-semibold text-yellow-500 mb-4">Our Travelers</h2>
-      <p className="text-lg">
-        Whether you're a budget backpacker, luxury explorer, or thrill-seeking adventurer — our platform is designed
-        with you in mind.
-      </p>
-    </div>
-  </section>
 
-  {/* Team Section */}
-  <section className="mb-12">
-    <h2 className="text-3xl font-semibold text-yellow-500 mb-6 text-center">Meet the Team</h2>
-    <div className="grid md:grid-cols-3 gap-6 text-center">
-      <div>
-        <img src="/images/founder.jpg" alt="Founder"
-          className="rounded-full w-32 h-32 mx-auto mb-2 object-cover shadow-md" />
-        <h3 className="font-bold">Sumit Sahu</h3>
-        <p className="text-sm text-gray-500">Founder & Travel Expert</p>
-      </div>
-      <div>
-        <img src="/images/designer.jpg" alt="Designer"
-          className="rounded-full w-32 h-32 mx-auto mb-2 object-cover shadow-md" />
-        <h3 className="font-bold">Isha Bairagi</h3>
-        <p className="text-sm text-gray-500">UI/UX Designer</p>
-      </div>
-      <div>
-        <img src="/images/guide.jpg" alt="Guide"
-          className="rounded-full w-32 h-32 mx-auto mb-2 object-cover shadow-md" />
-        <h3 className="font-bold">Ravi Sharma</h3>
-        <p className="text-sm text-gray-500">Operations & Tours</p>
-      </div>
-    </div>
-  </section>
+            {/* ====== 2 Section ====== */}
 
-  {/* What We Offer */}
-  <section className="mb-12">
-    <h2 className="text-3xl font-semibold text-yellow-500 mb-4">What We Offer</h2>
-    <ul className="list-disc list-inside text-lg space-y-2">
-      <li>✈️ Flight and hotel bookings at the best prices</li>
-      <li>🚗 Car rentals and guided tours</li>
-      <li>📍 Curated destination guides and travel plans</li>
-      <li>🌱 Focus on sustainable and responsible travel</li>
-    </ul>
-  </section>
+            <section className="px-4 md:px-16 py-12">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    {/* Left Text Content */}
+                    <div>
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug mb-4">
+                            Dear customers, we are proud to have been your partner for over 29
+                            years. We continuously strive to optimize all of our customers'
+                            experiences.
+                        </h2>
+                        <p className="text-gray-600 text-sm sm:text-base mt-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque,
+                            donec eget nulla turpis. Nullam commodo dignissim egestas. Sed a nisi
+                            quis dui malesuada.
+                        </p>
+                    </div>
 
-  {/* Why Choose Us */}
-  <section className="mb-12">
-    <h2 className="text-3xl font-semibold text-yellow-500 mb-4">Why Choose Via-Bhraman?</h2>
-    <p className="text-lg mb-2">
-      We're travelers first — we understand your needs and care about your experience. Our service is personal, our team
-      is passionate, and our mission is honest.
-    </p>
-    <p className="text-lg mb-4">
-      Still wondering? Reach out and let us show you why thousands choose Via-Bhraman to plan their perfect escape.
-    </p>
-    <a href="/contact">
-      <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded">
-        Contact Us
-      </button>
-    </a>
-  </section>
-</main>
-);
-}
+                    {/* Right Image & Card */}
+                    <div className="flex flex-col gap-6">
+                        <div className="relative rounded-xl  shadow-md">
+                            <img
+                                src="/about_2.webp"
+                                alt="Travel"
+                                className="w-full h-64 object-cover rounded-xl"
+                            />
+
+                            {/* Circle */}
+                            <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="w-36 h-36 rounded-full bg-white shadow-lg flex items-center justify-center text-center spin-slow">
+
+                                    <div className="rotate-[20deg] text-[14px] font-semibold text-gray-600 leading-tight">
+                                        <span className="block">Explore new lands</span>
+                                        <span className="text-yellow-600 text-2xl">↑</span>
+                                        <span className="block text-yellow-600 font-bold">GlobeTrek</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Features */}
+                        <div className="flex flex-col sm:flex-row justify-between gap-6">
+                            <div className="flex flex-col items-start gap-3">
+                                <Star className="text-yellow-600 w-6 h-6" />
+                                <div>
+                                    <h4 className="font-semibold text-2xl text-gray-800">Best Travel Agents</h4>
+                                    <p className="text-sm text-gray-500">
+                                        Pellentesque habitant morbi tristique senectus netus et malesuada
+                                        fames ac.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col items-start gap-3">
+                                <MapPin className="text-yellow-600 w-6 h-6" />
+                                <div>
+                                    <h4 className="font-semibold text-2xl text-gray-800">Travel Guidelines</h4>
+                                    <p className="text-sm text-gray-500">
+                                        Pellentesque habitant morbi tristique senectus netus et malesuada
+                                        fames ac.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Booking CTA */}
+                        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
+                            <div className="flex items-center gap-2 text-sm text-gray-700">
+                                <PhoneCall className="text-yellow-600 w-8 h-8" />
+                                <span className="flex flex-col text-l">
+                                    Booking Number{" "}
+                                    <span className="text-yellow-600 text-2xl font-semibold">
+                                        (229) 555–0109
+                                    </span>
+                                </span>
+                            </div>
+                            <button className="bg-yellow-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-yellow-700 transition">
+                                Booking Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+        </section>
+
+    );
+};
+
+export default About;

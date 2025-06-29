@@ -45,7 +45,7 @@ const AuthModal = ({ open, onClose, defaultToLogin = false }) => {
 
     const { username, email, password, confirmPassword } = formData;
 
-    if (!email || !password || (!isLogin && (!username || !confirmPassword))) {
+    if (!username || !password || (!isLogin && (!email || !confirmPassword))) {
       alert("Please fill all fields.");
       return;
     }
@@ -56,12 +56,12 @@ const AuthModal = ({ open, onClose, defaultToLogin = false }) => {
     }
 
     const url = isLogin
-      ? "http://localhost:5000/api/auth/login"
-      : "http://localhost:5000/api/auth/register";
+      ? "https://via-bhraman-backend.onrender.com/api/auth/login"
+      : "https://via-bhraman-backend.onrender.com/api/auth/register";
 
     const payload = isLogin
-      ? { email, password }
-      : { username, email, password };
+      ? { username, password }
+      : { username, email, password, confirmPassword };
 
     try {
       const res = await fetch(url, {
@@ -137,27 +137,29 @@ const AuthModal = ({ open, onClose, defaultToLogin = false }) => {
             </Typography>
 
             <Box component="form" noValidate onSubmit={handleSubmit}>
-              {!isLogin && (
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  label="User Name"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
-              )}
 
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                label="Email"
-                name="email"
-                value={formData.email}
+                label="User Name"
+                name="username"
+                value={formData.username}
                 onChange={handleChange}
               />
+
+
+              {!isLogin && (
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  label="Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              )}
 
               <TextField
                 margin="normal"
