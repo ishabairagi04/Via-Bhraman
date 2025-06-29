@@ -300,7 +300,7 @@ const Home = () => {
                 <div className="rotate-[20deg] text-[14px] font-semibold text-gray-600 leading-tight">
                   <span className="block">Explore new lands</span>
                   <span className="text-yellow-600 text-2xl">↑</span>
-                  <span className="block text-yellow-600 font-bold">GlobeTrek</span>
+                  <span className="block text-yellow-600 font-bold">Via Brahman</span>
                 </div>
               </div>
             </div>
@@ -471,11 +471,11 @@ const Home = () => {
   </div>
 </section> 
 {/*frame 6*/}
- {/* === Why Choose GlobeTrek === */}
+ {/* === Why Choose Via Brahman === */}
       <section className="bg-[#d8a34d] w-3000px bg-opacity-30 py-16 px-4 ml-[-45px] mr-[-40px] ">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
-            Why choose GlobeTrek
+            Why choose Via Brahman
           </h2>
           <p className="text-white mb-12">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet quam et diam bibendum

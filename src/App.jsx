@@ -5,12 +5,12 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
-import Hero from './components/Hero/Hero';
+import Home from './components/Home/Home';
 import About from './components/About Us/About';
 import Contact from './components/Contact/Contact';
 import Gallery from './components/Gallery/Gallery';
+import Destination from './components/Destinations/Destinations';
 
-import DiscoverSection from './components/Destinations/Destinations'; // Popular destination carousel
 
 export default function App() {
   return (
@@ -20,15 +20,16 @@ export default function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Hero />
-              <DiscoverSection /> {/* Frame 2 section */}
+              <Home />
+             
             </>
           } />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
+            <Route path="/Destination" element={<Destination />} />
         </Routes>
-        <Footer />
+       
       </div>
     </Router>
   );
