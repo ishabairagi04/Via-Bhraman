@@ -5,7 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
-import Hero from './components/Hero/Hero';
+import Home from './components/Home/Home';
 import About from './components/About Us/About';
 import Contact from './components/Contact/Contact';
 import Gallery from './components/Gallery/Gallery';
@@ -20,7 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Hero />
+              <Home />
               <DiscoverSection /> {/* Frame 2 section */}
             </>
           } />
