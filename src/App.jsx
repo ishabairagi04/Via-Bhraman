@@ -1,34 +1,35 @@
-// App.jsx
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Hero from './components/Hero/Hero';
-import './App.css';  // or wherever you placed the CSS
-import { useNavigate } from "react-router-dom";
+import './App.css';
+
+import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
+import Hero from './components/Hero/Hero';
 import About from './components/About Us/About';
 import Contact from './components/Contact/Contact';
 import Gallery from './components/Gallery/Gallery';
+
+import DiscoverSection from './components/Destinations/Destinations'; // Popular destination carousel
 
 export default function App() {
   return (
     <Router>
       <div className="font-sans">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/gallery" element={<Gallery />} />
-      </Routes>
-      <Footer/>
-
-      
-      
-    </div>
-
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <DiscoverSection /> {/* Frame 2 section */}
+            </>
+          } />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
-
   );
 }
