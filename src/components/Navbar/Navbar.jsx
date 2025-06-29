@@ -79,25 +79,18 @@ const Navbar = () => {
       >
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           {/* Left Logo */}
-          <Box display="flex" alignItems="center" gap={2}>
-            <Box
-              sx={{
-                width: 48,
-                height: 48,
-                borderRadius: 2,
-                backgroundColor: "#facc15",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Typography variant="h6" color="white">
-                ✈️
-              </Typography>
-            </Box>
+          <Box display="flex" alignItems="center" gap={1}>
+            <Box sx={{ width: 100, height: 100 }}>
+  <img
+    src="/logo.png" // Update the path if your logo is in a different location
+    alt="Via Brahman Logo"
+    style={{ width: 200, height: 200, objectFit: "cover" ,marginTop:-50 }}
+  />
+</Box>
+
             <Box>
               <Typography variant="h6" fontWeight="bold">
-                GlobeTrek
+                Via Brahman
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 Explore new lands
@@ -115,7 +108,7 @@ const Navbar = () => {
             {[
               { label: "Home", path: "/" },
               { label: "Tour Packages", path: "/tours" },
-              { label: "Destination", path: "/destinations" },
+              { label: "Destination", path: "/Destination" },
               { label: "Gallery", path: "/gallery" },
               { label: "About Us", path: "/about" },
               { label: "Contact Us", path: "/contact" },

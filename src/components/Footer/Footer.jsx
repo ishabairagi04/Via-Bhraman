@@ -85,7 +85,7 @@ const Footer = () => {
             </Box>
             <Box>
               <Typography variant="h6" fontWeight="bold">
-                GlobeTrek
+                Via Brahman
               </Typography>
               <Typography variant="body2" color="gray">
                 Explore new lands
@@ -197,7 +197,7 @@ const Footer = () => {
           <AiOutlineInstagram className="hover:text-yellow-400 cursor-pointer" />
         </Stack>
         <Typography variant="body2" color="gray" textAlign="center">
-          Copyright © 2025 GlobeTrek. Designed & Developed by Themesflat
+          Copyright © 2025 Via Brahman. Designed & Developed by Themesflat
         </Typography>
       </Stack>
 

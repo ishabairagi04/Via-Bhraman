@@ -1,16 +1,27 @@
+import React from 'react';
+import {
+  ArrowBackIosNew,
+  ArrowForwardIos
+} from '@mui/icons-material';
 import Navbar from '../Navbar/Navbar';
 import { motion } from 'framer-motion';
-import { Box, Typography, Grid, Card, CardMedia,Container, CardContent, IconButton, Chip, Stack, Button, } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  Container,
+  CardContent,
+  IconButton,
+  Chip,
+  Stack,
+  Button,
+} from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PeopleIcon from '@mui/icons-material/People';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectCoverflow } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-
 
 const trips = [
   {
@@ -54,35 +65,123 @@ const trips = [
   },
 ];
 
-const destinations = [
-  {
-    title: "Gyeongju",
-    image: "/slide-03.webp",
-    description: "Mi bibendum neque egestas congue. Arcu risus quis varius quam quisque id diam vel. Nunc sed blandit...",
-    tours: 5,
-  },
-  {
-    title: "Dolomites",
-    image: "/slide-03.webp",
-  },
-  {
-    title: "Lake Braies",
-    image: "/slide-03.webp",
-  },
-  {
-    title: "Blue Ridge",
-    image: "/slide-03.webp",
-  },
-  {
-    title: "Monument Valley",
-    image: "/images/monument-valley.jpg",
-  },
+const cards = [
+  { id: 1, title: 'Gyeongju', img: '/images/gyeongju.jpg', tours: 5 },
+  { id: 2, title: 'Dolomites', img: '/images/dolomites.jpg', tours: 3 },
+  { id: 3, title: 'Lake Braies', img: '/images/lake-braies.jpg', tours: 4 },
+  { id: 4, title: 'Blue Ridge', img: '/images/blue-ridge.jpg', tours: 2 },
+  { id: 5, title: 'Monument Valley', img: '/images/monument-valley.jpg', tours: 6 },
+  { id: 6, title: 'Kyoto', img: '/images/kyoto.jpg', tours: 3 },
 ];
 
-const DiscoverSection = () => {
+const arrowStyle = (side) => ({
+  position: 'absolute',
+  top: '50%',
+  [side]: 10,
+  transform: 'translateY(-50%)',
+  bgcolor: '#fff',
+  boxShadow: 3,
+  zIndex: 20,
+  '&:hover': { bgcolor: '#f0f0f0' },
+});
+
+function DestinationCarousel() {
+  const [center, setCenter] = React.useState(2);
+
+  const prev = () => setCenter((c) => Math.max(0, c - 1));
+  const next = () => setCenter((c) => Math.min(cards.length - 1, c + 1));
+
+  return (
+    <Box sx={{ position: 'relative', py: 10, overflow: 'hidden', bgcolor: '#f9f9f9' }}>
+      <Typography variant="h4" align="center" fontWeight={700} gutterBottom>
+        Plan Your Perfect Journey
+      </Typography>
+      <Typography variant="body1" align="center" color="text.secondary" sx={{ mb: 6 }}>
+        Scroll to explore our top destinations picked just for you.
+      </Typography>
+
+      <IconButton onClick={prev} sx={arrowStyle('left')}>
+        <ArrowBackIosNew />
+      </IconButton>
+      <IconButton onClick={next} sx={arrowStyle('right')}>
+        <ArrowForwardIos />
+      </IconButton>
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+          height: '460px',
+        }}
+      >
+        {cards.map((card, i) => {
+  const offset = i - center;
+  const isCenter = offset === 0;
+
+  return (
+    <Card
+      key={card.id}
+      onClick={() => setCenter(i)} // 👈 CLICK HANDLER
+      sx={{
+        position: 'absolute',
+        width: isCenter ? 340 : 260,
+        height: isCenter ? 460 : 400,
+        borderRadius: 3,
+        overflow: 'hidden',
+        transform: `translateX(${offset * 300}px) scale(${isCenter ? 1 : 0.8})`,
+        opacity: isCenter ? 1 : 0.5,
+        filter: isCenter ? 'none' : 'brightness(0.7)',
+        transition: 'all 0.5s ease',
+        zIndex: isCenter ? 10 : 5,
+        boxShadow: isCenter ? 12 : 4,
+        cursor: 'pointer', // 👈 Makes it clickable visually
+      }}
+    >
+      <CardMedia
+        component="img"
+        image={card.img}
+        alt={card.title}
+        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+      {isCenter && (
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+            background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+            color: '#fff',
+            textAlign: 'center',
+            py: 2,
+            px: 2,
+          }}
+        >
+          <Typography variant="h6">{card.title}</Typography>
+          <Button
+            variant="contained"
+            sx={{ mt: 1, bgcolor: '#fff', color: '#444', textTransform: 'none' }}
+          >
+            {card.tours} Tours
+          </Button>
+        </Box>
+      )}
+    </Card>
+  );
+})}
+
+      </Box>
+    </Box>
+  );
+}
+
+export default function Destination() {
   return (
     <section>
       <Navbar />
+
+      {/* Hero Section */}
       <Box
         sx={{
           position: 'relative',
@@ -152,7 +251,7 @@ const DiscoverSection = () => {
         </Container>
       </Box>
 
-      {/* Frame 1 */}
+      {/* Frame 1 Section */}
       <Box sx={{ py: 10, px: { xs: 2, md: 8 }, bgcolor: '#fff' }}>
         <Typography variant="h4" align="center" fontWeight={700} gutterBottom>
           Explore our exclusive, otherworldly retreats
@@ -256,93 +355,8 @@ const DiscoverSection = () => {
         </Box>
       </Box>
 
-     {/* Frame 2 Carousel Section */}
-<Box
-  sx={{
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    overflowX: 'scroll',
-    px: { xs: 2, md: 10 },
-    gap: 4,
-    scrollSnapType: 'x mandatory',
-    scrollPaddingLeft: '10%',
-    '&::-webkit-scrollbar': { display: 'none' },
-  }}
->
-  {trips.map((trip, index) => {
-    const isCenter = index === 1;
-
-    return (
-      <Card
-        key={trip.id}
-        sx={{
-          flex: '0 0 320px',
-          height: 420,
-          scrollSnapAlign: 'center',
-          borderRadius: 4,
-          overflow: 'hidden',
-          transform: isCenter ? 'scale(1.1)' : 'scale(0.88)',
-          filter: !isCenter ? 'brightness(0.7) blur(1px)' : 'none',
-          transition: 'all 0.4s ease-in-out',
-          boxShadow: isCenter ? 6 : 2,
-        }}
-      >
-        <CardMedia
-          component="img"
-          image={trip.image}
-          alt={trip.title}
-          sx={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-          }}
-        />
-
-        {/* Gradient + Text Overlay */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
-            color: '#fff',
-            px: 2,
-            py: 3,
-            background:
-              'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.05))',
-          }}
-        >
-          <Typography variant="subtitle2">{trip.location}</Typography>
-          <Typography variant="h6" fontWeight={600}>
-            {trip.title}
-          </Typography>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            mt={1}
-          >
-            <Typography variant="caption">
-              <PeopleIcon fontSize="inherit" sx={{ mr: 0.5 }} />
-              {trip.people} People
-            </Typography>
-            <Typography variant="caption">
-              <CalendarTodayIcon fontSize="inherit" sx={{ mr: 0.5 }} />
-              {trip.days} Days
-            </Typography>
-            <Typography variant="subtitle2" fontWeight={700}>
-              ${trip.price}
-            </Typography>
-          </Stack>
-        </Box>
-      </Card>
-    );
-  })}
-</Box>
-
-
+      {/* Frame 2 Carousel */}
+      <DestinationCarousel />
     </section>
   );
-};
-
-export default DiscoverSection;
+}
