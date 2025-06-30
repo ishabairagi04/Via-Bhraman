@@ -45,7 +45,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-gray-800 py-12 px-4 md:px-8 mt-8">
+    <main className="min-h-screen bg-white text-gray-800 py-12 px-4 md:px-8 mt-16 sm:mt-20">
       <Typography variant="h4" align="center" className="text-yellow-500 font-bold mb-10">
         Contact Us
       </Typography>

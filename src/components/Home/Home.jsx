@@ -5,12 +5,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiArrowLeft } from "react-icons/fi";
 import { IoIosStar } from "react-icons/io";
-import { FaCamera, FaVideo, FaHeart, FaUserTie, FaMapMarkedAlt, FaSpa, FaTags ,FaClock } from "react-icons/fa";
+import { FaCamera, FaVideo, FaHeart, FaUserTie, FaMapMarkedAlt, FaSpa, FaTags, FaClock } from "react-icons/fa";
 
 import { Parallax } from 'react-parallax';
 
 import { motion, useViewportScroll, useTransform } from "framer-motion";
-import Footer from "../Footer/Footer";
 
 const packages = [
   {
@@ -178,7 +177,7 @@ const Home = () => {
   const [showSearch, setShowSearch] = useState(false);
 
   const cardContainerRef = useRef(null);
-   const { scrollY } = useViewportScroll();
+  const { scrollY } = useViewportScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0.7]);
   const scale = useTransform(scrollY, [0, 300], [1, 1.05]);
 
@@ -194,20 +193,20 @@ const Home = () => {
 
   return (
     <section
-      className="w-full h-screen bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10"
-      style={{ backgroundImage: "url('/desert.jpg')", paddingBottom: "300px" }}
-     
+      className="w-full min-h-screen  py-32 px-4 md:px-10"
     >
-      <div className="text-center mt-16 mb-12" data-aos="fade-up">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
-          Discover the world <br /> with our tours
-        </h1>
-        <p className="text-gray-700 text-lg md:text-xl">
-          Escape the hustle and bustle, enjoy the perfect vacation.
-        </p>
-        <button className="bg-yellow-500 text-white font-semibold px-8 py-3 rounded-lg mt-6 hover:bg-yellow-600 transition duration-200">
-          Start Exploring
-        </button>
+      <div className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/desert.jpg')", paddingBottom: "300px" }}>
+        <div className="text-center mt-16 mb-12" data-aos="fade-up">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
+            Discover the world <br /> with our tours
+          </h1>
+          <p className="text-gray-700 text-lg md:text-xl">
+            Escape the hustle and bustle, enjoy the perfect vacation.
+          </p>
+          <button className="bg-yellow-500 text-white font-semibold px-8 py-3 rounded-lg mt-6 hover:bg-yellow-600 transition duration-200">
+            Start Exploring
+          </button>
+        </div>
       </div>
 
       {/* Toggle Button for Mobile */}
@@ -394,84 +393,84 @@ const Home = () => {
         </div>
       </section>
 
-   {/* === Frame 5 === */}
-<section className="bg-gradient-to-b from-white via-gray-50 to-white py-20">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-center mb-3">Our best-selling tours</h2>
-    <p className="text-center text-gray-500 mb-10">
-      Explore the tours chosen and recommended by a multitude of travelers.
-    </p>
+      {/* === Frame 5 === */}
+      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-3">Our best-selling tours</h2>
+          <p className="text-center text-gray-500 mb-10">
+            Explore the tours chosen and recommended by a multitude of travelers.
+          </p>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {bestSellingTours.map((tour) => (
-        <div
-          key={tour.id}
-          className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col"
-        >
-          {/* Image + Icons */}
-          <div className="relative">
-            <img
-              src={tour.image}
-              alt={tour.title}
-              className="h-48 w-full object-cover"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {bestSellingTours.map((tour) => (
+              <div
+                key={tour.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col"
+              >
+                {/* Image + Icons */}
+                <div className="relative">
+                  <img
+                    src={tour.image}
+                    alt={tour.title}
+                    className="h-48 w-full object-cover"
+                  />
 
-            {/* Top Left Badges */}
-            <div className="absolute top-2 left-2 flex items-center gap-2">
-              <span className="bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                Featured
-              </span>
-              <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                <FaCamera className="text-sm" /> 5
-              </span>
-              <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full flex items-center">
-                <FaVideo className="text-sm" />
-              </span>
-            </div>
+                  {/* Top Left Badges */}
+                  <div className="absolute top-2 left-2 flex items-center gap-2">
+                    <span className="bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      Featured
+                    </span>
+                    <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                      <FaCamera className="text-sm" /> 5
+                    </span>
+                    <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full flex items-center">
+                      <FaVideo className="text-sm" />
+                    </span>
+                  </div>
 
-            {/* Top Right Heart */}
-            <div className="absolute top-2 right-2">
-              <button className="bg-white rounded-full p-2 shadow hover:text-red-500 transition">
-                <FaHeart className="text-gray-700 text-sm" />
-              </button>
-            </div>
-          </div>
+                  {/* Top Right Heart */}
+                  <div className="absolute top-2 right-2">
+                    <button className="bg-white rounded-full p-2 shadow hover:text-red-500 transition">
+                      <FaHeart className="text-gray-700 text-sm" />
+                    </button>
+                  </div>
+                </div>
 
-          {/* Card Body */}
-          <div className="p-4 flex flex-col flex-1 justify-between">
-            {/* Rating */}
-            <div className="flex items-center text-yellow-500 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <IoIosStar key={i} />
-              ))}
-              <span className="text-sm text-gray-500 ml-1">(1 Rating)</span>
-            </div>
+                {/* Card Body */}
+                <div className="p-4 flex flex-col flex-1 justify-between">
+                  {/* Rating */}
+                  <div className="flex items-center text-yellow-500 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <IoIosStar key={i} />
+                    ))}
+                    <span className="text-sm text-gray-500 ml-1">(1 Rating)</span>
+                  </div>
 
-            {/* Title */}
-            <h3 className="font-bold text-lg mb-2 leading-snug">{tour.title}</h3>
+                  {/* Title */}
+                  <h3 className="font-bold text-lg mb-2 leading-snug">{tour.title}</h3>
 
-            {/* People & Days */}
-            <div className="flex justify-start items-center text-sm text-gray-600 gap-6">
-              <div className="flex items-center gap-1">👥 {tour.people} People</div>
-              <div className="flex items-center gap-1">📅 {tour.days} Days</div>
-            </div>
+                  {/* People & Days */}
+                  <div className="flex justify-start items-center text-sm text-gray-600 gap-6">
+                    <div className="flex items-center gap-1">👥 {tour.people} People</div>
+                    <div className="flex items-center gap-1">📅 {tour.days} Days</div>
+                  </div>
 
-            {/* Divider */}
-            <hr className="my-3" />
+                  {/* Divider */}
+                  <hr className="my-3" />
 
-            {/* Location & Price */}
-            <div className="flex justify-between items-center text-sm text-gray-600">
-              <div className="flex items-center gap-1">📍 {tour.location}</div>
-              <div className="text-yellow-600 font-bold text-lg">{tour.price}</div>
-            </div>
+                  {/* Location & Price */}
+                  <div className="flex justify-between items-center text-sm text-gray-600">
+                    <div className="flex items-center gap-1">📍 {tour.location}</div>
+                    <div className="text-yellow-600 font-bold text-lg">{tour.price}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section> 
-{/*frame 6*/}
- {/* === Why Choose Via Brahman === */}
+      </section>
+      {/*frame 6*/}
+      {/* === Why Choose Via Brahman === */}
       <section className="bg-[#d8a34d] w-3000px bg-opacity-30 py-16 px-4 ml-[-45px] mr-[-40px] ">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
@@ -515,25 +514,25 @@ const Home = () => {
           </div>
         </div>
       </section>
-     {/* Forest Parallax Section with Framer Motion Animation */}
-      <motion.div style={{ opacity, scale, marginTop:16 }}>
+      {/* Forest Parallax Section with Framer Motion Animation */}
+      <motion.div style={{ opacity, scale, marginTop: 16 }}>
         <Parallax
           bgImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
           strength={400}
         >
           <div className="h-[90vh] flex items-center  justify-center">
-           
+
             <div className="bg-black bg-opacity-50 text-white p-8 rounded-lg text-center max-w-2xl">
-                 {/* Play Button */}
-      <button className="w-16 h-16 rounded-full bg-white/20  border-2 border-white hover:bg-white/30 transition flex items-center justify-center mx-auto">
-        <svg
-          className="w-8 h-8 text-white"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M6 4l12 6-12 6V4z" />
-        </svg>
-      </button>
+              {/* Play Button */}
+              <button className="w-16 h-16 rounded-full bg-white/20  border-2 border-white hover:bg-white/30 transition flex items-center justify-center mx-auto">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l12 6-12 6V4z" />
+                </svg>
+              </button>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Discover the Beauty of <br /> Nature
               </h1>
@@ -545,7 +544,7 @@ const Home = () => {
         </Parallax>
       </motion.div>
 
-       {/* === Frame 7: Top Destinations === */}
+      {/* === Frame 7: Top Destinations === */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-2">Top choice for your trip</h2>
@@ -553,28 +552,27 @@ const Home = () => {
             Discover the Most Popular Places to Visit
           </p>
 
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-  {destinations.map((dest) => (
-    <div
-      key={dest.id}
-      className={`relative overflow-hidden rounded-xl shadow-md ${
-        dest.id === 1 ? "md:row-span-2" : ""
-      }`}
-    >
-      <img
-        src={dest.image}
-        alt={dest.name}
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute bottom-2 left-2 bg-white px-4 py-2 rounded-xl shadow">
-        <h3 className="font-bold text-sm">{dest.name}</h3>
-        <p className="text-xs text-gray-500">
-          {dest.tours} Tour{dest.tours > 1 ? "s" : ""}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+            {destinations.map((dest) => (
+              <div
+                key={dest.id}
+                className={`relative overflow-hidden rounded-xl shadow-md ${dest.id === 1 ? "md:row-span-2" : ""
+                  }`}
+              >
+                <img
+                  src={dest.image}
+                  alt={dest.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-2 left-2 bg-white px-4 py-2 rounded-xl shadow">
+                  <h3 className="font-bold text-sm">{dest.name}</h3>
+                  <p className="text-xs text-gray-500">
+                    {dest.tours} Tour{dest.tours > 1 ? "s" : ""}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
 
         </div>
       </section>
@@ -618,7 +616,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer/>
     </section>
   );
 };

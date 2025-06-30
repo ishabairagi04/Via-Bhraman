@@ -185,6 +185,7 @@ export default function Destination() {
       <Box
         sx={{
           position: 'relative',
+          mt: { xs: 8, sm: 10 },
           height: { xs: '70vh', md: '60vh' },
           backgroundImage: 'url(/slide-03.webp)',
           backgroundSize: 'cover',
