@@ -80,22 +80,14 @@ const Navbar = () => {
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           {/* Left Logo */}
           <Box display="flex" alignItems="center" gap={1}>
-            <Box sx={{ width: 100, height: 100 }}>
+            <Box sx={{ width: 250, height: 100 }}>
   <img
     src="/logo.png" // Update the path if your logo is in a different location
     alt="Via Brahman Logo"
-    style={{ width: 200, height: 200, objectFit: "cover" ,marginTop:-50 }}
+    style={{ width: 300, height: 200, objectFit: "contain" ,marginTop:-50 }}
   />
 </Box>
 
-            <Box>
-              <Typography variant="h6" fontWeight="bold">
-                Via Brahman
-              </Typography>
-              <Typography variant="caption" color="text.secondary">
-                Explore new lands
-              </Typography>
-            </Box>
           </Box>
 
           {/* Center Links */}
