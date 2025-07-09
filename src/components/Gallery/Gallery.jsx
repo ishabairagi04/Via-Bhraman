@@ -37,7 +37,8 @@ setModalContent(null);
 };
 
 return (
-<main className="bg-white min-h-screen py-12 px-4 md:px-8 mt-8">
+<main className="min-h-screen bg-white text-gray-800 py-12 px-4 md:px-8 mt-12 sm:mt-20">
+
   <Typography variant="h4" align="center" className="text-yellow-500 font-bold mb-6">
     Explore Our Gallery
   </Typography>
