@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/Destination" element={<Destination />} />
         </Routes>
-        <Footer />
+      
       </div>
     </Router>
   );
