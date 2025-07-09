@@ -22,6 +22,10 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PeopleIcon from '@mui/icons-material/People';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import TravelCarousel from './Carousel';
+
+
+
 
 const trips = [
   {
@@ -66,12 +70,12 @@ const trips = [
 ];
 
 const cards = [
-  { id: 1, title: 'Gyeongju', img: '/images/gyeongju.jpg', tours: 5 },
-  { id: 2, title: 'Dolomites', img: '/images/dolomites.jpg', tours: 3 },
-  { id: 3, title: 'Lake Braies', img: '/images/lake-braies.jpg', tours: 4 },
-  { id: 4, title: 'Blue Ridge', img: '/images/blue-ridge.jpg', tours: 2 },
-  { id: 5, title: 'Monument Valley', img: '/images/monument-valley.jpg', tours: 6 },
-  { id: 6, title: 'Kyoto', img: '/images/kyoto.jpg', tours: 3 },
+  { id: 1, title: 'Gyeongju', img: '/slide-03.webp', tours: 5 },
+  { id: 2, title: 'Dolomites', img: '/slide-03.webp', tours: 3 },
+  { id: 3, title: 'Lake Braies', img: '/slide-03.webp', tours: 4 },
+  { id: 4, title: 'Blue Ridge', img: '/slide-03.webp', tours: 2 },
+  { id: 5, title: 'Monument Valley', img: '/slide-03.webp', tours: 6 },
+  { id: 6, title: 'Kyoto', img: '/slide-03.webp', tours: 3 },
 ];
 
 const arrowStyle = (side) => ({
@@ -92,7 +96,7 @@ function DestinationCarousel() {
   const next = () => setCenter((c) => Math.min(cards.length - 1, c + 1));
 
   return (
-    <Box sx={{ position: 'relative', py: 10, overflow: 'hidden', bgcolor: '#f9f9f9' }}>
+    <Box sx={{ position: 'relative', py: 5, overflow: 'hidden', bgcolor: '#f9f9f9' }}>
       <Typography variant="h4" align="center" fontWeight={700} gutterBottom>
         Plan Your Perfect Journey
       </Typography>
@@ -136,7 +140,9 @@ function DestinationCarousel() {
         transition: 'all 0.5s ease',
         zIndex: isCenter ? 10 : 5,
         boxShadow: isCenter ? 12 : 4,
-        cursor: 'pointer', // 👈 Makes it clickable visually
+        cursor: 'pointer',
+        ml: isCenter ? 0 : -20,
+        // 👈 Makes it clickable visually
       }}
     >
       <CardMedia
@@ -357,7 +363,7 @@ export default function Destination() {
       </Box>
 
       {/* Frame 2 Carousel */}
-      <DestinationCarousel />
+     <TravelCarousel />
     </section>
   );
 }
