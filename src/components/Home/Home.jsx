@@ -193,10 +193,10 @@ const Home = () => {
 
   return (
     <section
-      className="w-full min-h-screen  py-32 px-4 md:px-10"
+      className="w-full min-h-screen  mt-10"
     >
-      <div className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/desert.jpg')", paddingBottom: "300px" }}>
-        <div className="text-center mt-16 mb-12" data-aos="fade-up">
+      <div className="bg-cover bg-center bg-no-repeat " style={{ backgroundImage: "url('/desert.jpg')" ,marginTop: "100px", height: "1000px" }}>
+        <div className="text-center  pt-30" data-aos="fade-up">
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
             Discover the world <br /> with our tours
           </h1>
@@ -208,9 +208,9 @@ const Home = () => {
           </button>
         </div>
       </div>
-
+<div className="mt-[-250px]">
       {/* Toggle Button for Mobile */}
-      <div className="md:hidden mb-6 text-center">
+      <div className="md:hidden mb-6 text-center mt-[-200px]">
         <button
           onClick={() => setShowSearch(!showSearch)}
           className="text-yellow-600 font-semibold underline focus:outline-none"
@@ -283,7 +283,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-
+</div>
       {/* === Frame 3 Section: Why Travel With Us === */}
       <section className="py-20 mt-10 bg-white">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-12">

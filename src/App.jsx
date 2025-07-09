@@ -9,6 +9,7 @@ import About from './components/About Us/About';
 import Contact from './components/Contact/Contact';
 import Gallery from './components/Gallery/Gallery';
 import Destination from './components/Destinations/Destinations';
+
 // If DiscoverSection is needed, import it
 // import DiscoverSection from './components/DiscoverSection'; // Uncomment if used
 
@@ -24,8 +25,10 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/Destination" element={<Destination />} />
         </Routes>
-      
+    <Footer/>
       </div>
+   
     </Router>
+    
   );
 }
