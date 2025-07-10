@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
+
+
+
+
+
 import Home from './components/Home/Home';
 import About from './components/About Us/About';
 import Contact from './components/Contact/Contact';
@@ -14,6 +18,7 @@ import Destination from './components/Destinations/Destinations';
 // import DiscoverSection from './components/DiscoverSection'; // Uncomment if used
 
 export default function App() {
+
   return (
     <Router>
       <div className="font-sans">
@@ -32,3 +37,4 @@ export default function App() {
     
   );
 }
+
