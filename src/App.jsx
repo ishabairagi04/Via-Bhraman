@@ -5,6 +5,9 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 
 
+
+
+
 import Home from './components/Home/Home';
 import About from './components/About Us/About';
 import Contact from './components/Contact/Contact';
@@ -15,19 +18,23 @@ import Destination from './components/Destinations/Destinations';
 // import DiscoverSection from './components/DiscoverSection'; // Uncomment if used
 
 export default function App() {
-return (
-<Router>
-  <div className="font-sans">
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/gallery" element={<Gallery />} />
-      <Route path="/Destination" element={<Destination />} />
-    </Routes>
+
+  return (
+    <Router>
+      <div className="font-sans">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/Destination" element={<Destination />} />
+        </Routes>
+    <Footer/>
+      </div>
+   
+    </Router>
     
-  </div>
-</Router>
-);
+  );
 }
+
