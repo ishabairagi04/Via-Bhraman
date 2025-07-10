@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './Carousel.css';
+import BreadcrumbHeader from '../places/manali/manali';
+import Link from 'next/link';
 
 const destinations = [
   {
-    title: 'New York, USA',
+    title: 'manali',
     description:
       'Mi bibendum neque egestas congue. Arcu risus quis varius quam quisque id diam.',
     image: 'slide-02.webp',
     tours: '1 Tour',
-    link: '/destination/new-york',
+      link: '/places/manali', // ✅ remove .jsx
   },
   {
     title: 'Italy Alps',
@@ -96,13 +98,17 @@ export default function Carousel() {
       
     }}
   >
-      <div className={`card ${offset === 0 ? 'active' : ''}`} style={style}>
+   <div className={`card ${offset === 0 ? 'active' : ''}`} style={style}>
+
                 <img src={d.image} alt={d.title} />
-                <div className="card-content">
-                  <h3>{d.title}</h3>
-                  <p>{d.description}</p>
-                  <span className="badge">{d.tours}</span>
-                </div>
+                {offset === 0 && (
+  <div className="card-content ">
+    <h3>{d.title}</h3>
+    <p>{d.description}</p>
+    <span className="badge">{d.tours}</span>
+  </div>
+)}
+
                 </div>
               </a>
             );
