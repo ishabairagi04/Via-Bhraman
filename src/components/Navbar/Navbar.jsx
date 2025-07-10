@@ -74,7 +74,7 @@ const Navbar = () => {
           px: { xs: 2, md: 6 },
           py: 1.5,
           transition: "box-shadow 0.3s ease",
-          zIndex: 10,
+          zIndex: 1200,
         }}
       >
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>

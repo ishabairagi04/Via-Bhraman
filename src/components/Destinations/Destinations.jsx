@@ -24,7 +24,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import TravelCarousel from './Carousel';
 
-
+import TravelInfoSection from './bookingsContact'
 
 
 const trips = [
@@ -364,6 +364,7 @@ export default function Destination() {
 
       {/* Frame 2 Carousel */}
      <TravelCarousel />
+     <TravelInfoSection/>
     </section>
   );
 }
