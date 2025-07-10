@@ -181,7 +181,7 @@ return (
           value={form.message} onChange={handleChange} />
         <Button type="submit" fullWidth variant="contained"
           className="!bg-yellow-500 hover:!bg-yellow-600 text-white font-semibold">
-          Send Message
+          Send Message To Us
         </Button>
       </form>
     </div>
